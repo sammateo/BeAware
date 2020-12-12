@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>BeAware</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+	 <div class="topnav">
+    <a class="active" href="index.html">Home</a>
+    <a class="active" href="disasters.html">Disasters</a>
+    <a style="background-color: green;" class="active" href="weather.html">Weather</a>
+    <a class="active" href="content.html">Content</a>
+    <input type="text" placeholder="Search.." id="searchbar">
+  </div>
+
+  <div class="sidebar">
+    <a href="images.html">Images</a>
+    <a href="videos.html">Videos</a>
+    <a href="stories.html">Stories</a>
+  </div>
+
+
+  <div class="content">
+  	<h1>Weather</h1>
+	<div id="test"></div>
+	
+	
+	<div id="bim"></div>
+	<div id="weatherbox">
+		<h2>Enter Country</h2>
+		<input type="city" name="city" id="city">
+		<button id="click">Click for weather</button>
+
+		<p id="temp">Temperature:</p>
+		<p id="feels">Feels like:</p>
+		<p id="humid">Humidity</p>
+		<p id="cloud">Clouds:</p>
+		<p id="wind">Wind Speed:</p>
+
+	</div>
+
+	<br><br><br>
+	<div class="windy">
+		<iframe width="1000" height="500" src="https://embed.windy.com/embed2.html?lat=13.096&lon=-59.616&detailLat=13.096&detailLon=-59.616&width=650&height=450&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1" frameborder="0"></iframe>
+	</div>
+	
+
+  </div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <div class="footer">
+      <table>
+        <tr>
+          <td>
+            <div class="left">
+              <h3>Quick Links</h3>
+              <ul>
+                <li>
+                  <a target="_blank" href="https://gisbarbados.gov.bb/blog/tag/hurricane-season/">GIS</a>
+                </li>
+                <li><a href="https://www.nhc.noaa.gov/">NHC</a>
+                </li>
+                <li>
+                  <a href="https://www.volcanodiscovery.com/earthquakes/caribbean.html">Caribbean Earthquake</a>
+                </li>
+              </ul>
+            </div>
+          </td>
+          <td>
+            <pre>                                                    </pre>
+          </td>
+          <td>
+            
+            <div class="aboutus">
+              <h3>Our Team:</h3>
+              <ul>
+                <li>
+                  Mateo Sam
+                </li>
+                <li>Wayne Carrington</li>
+                <li>Donte Lythchott</li>
+              </ul>
+            </div>
+          </td>
+          <td>
+            <pre>                                                    </pre>
+          </td>
+
+          <td class="right">
+             <div>
+              <br>
+                <h3>Follow us</h3>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/1024px-YouTube_full-color_icon_%282017%29.svg.png">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/120px-Instagram_logo_2016.svg.png">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9f/Twitter_bird_logo_2012.svg/1280px-Twitter_bird_logo_2012.svg.png">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/1024px-Facebook_f_logo_%282019%29.svg.png">
+              </div>
+          </td>
+        </tr>
+      </table>
+      
+
+     
+    
+  </div>
+
+
+
+
+	<script type="text/javascript">
+		let bimbutton = document.querySelector("#click");
+		let text = document.querySelector("#test");
+		let temp = document.querySelector("#temp");
+		let cloud = document.querySelector("#cloud");
+		let feels = document.querySelector("#feels");
+		let humid = document.querySelector("#humid");
+		let wind = document.querySelector("#wind");
+		let bim = document.querySelector('#bim');
+		let city = document.querySelector('#city');
+		// let search = document.querySelector('#searchbar');
+
+		
+		city.addEventListener("keydown",function(event){
+			if (event.keyCode === 13) {
+   				event.preventDefault();
+   				bimbutton.click();
+		}});
+
+
+		bimbutton.addEventListener('click',getWeather);
+		
+
+		async function getWeather(){
+			//weData = await fetch('http://api.openweathermap.org/data/2.5/weather?q=Kingston&units=metric&appid=58badd71bbef7ec9f042dacc36ad1c95')
+			let location = city.value;
+			let weData = await fetch('http://api.openweathermap.org/data/2.5/weather?q='+location+'&units=metric&appid=58badd71bbef7ec9f042dacc36ad1c95')
+
+			//weData = await fetch('https://api.reliefweb.int/v1/reports?appname=apidoc&offset=10&limit=10') //relief web
+
+			let weObj = await weData.json();
+
+			let faren =  (weObj.main.temp * 9/5)+32;
+			let farenfeel =  (weObj.main.feels_like * 9/5)+32;
+
+			temp.innerHTML = "Temperature: " + weObj.main.temp + "°C"+" or "+ faren+"°F";
+			cloud.innerHTML = "Clouds: " + weObj.weather[0].description;
+			wind.innerHTML ="Wind Speed: " + weObj.wind.speed + "m/s";
+			feels.innerHTML="Feels like: "+weObj.main.feels_like+ "°C"+" or "+ farenfeel+"°F";;
+			humid.innerHTML="Humidity: "+weObj.main.humidity+"%";
+			console.log(weObj);
+		}
+	</script>
+
+
+	<script src="search.js">
+	</script>
+</body>
+</html>

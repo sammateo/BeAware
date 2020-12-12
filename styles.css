@@ -1,0 +1,380 @@
+ body {  background-color: blue;
+         /*background-image : url("https://www.pandotrip.com/wp-content/uploads/2014/01/hawaii-740x492.jpg");*/
+          background: url('https://www.worthingherald.co.uk/webimg/T0FLMTIyMjI2MzE4.jpg?&width=640') no-repeat center fixed;     
+         background-size: cover;        
+}
+
+* {box-sizing: border-box;}
+body {
+  margin: 0;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.topnav {
+  overflow: hidden;
+  background-color: #E9E9E9;
+  /*position: fixed;*/
+}
+.topnav a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  position: relative;
+}
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+.topnav a.active {
+  background-color: #2196F3;
+  color: white;
+  width: 300px;
+}
+.topnav a.active:hover{
+  opacity: 0.5;
+}
+.topnav input[type=text] {
+  float: right;
+  padding: 6px;
+  margin-top: 8px;
+  margin-right: 16px;
+  border: none;
+  font-size: 17px;
+}
+@media screen and (max-width: 50px) {
+  .topnav a, .topnav input[type=text] {
+    float: none;
+    display: block;
+    text-align: right;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;
+  }
+}
+
+/*sidebar*/
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position: absolute;
+  /*height: 100vh;*/
+  overflow: auto;
+  border-bottom-right-radius: 10px; 
+}
+
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 75px;
+  text-decoration: none;
+  height: 200px;
+  text-align: center;
+}
+ 
+.sidebar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+div.content {
+
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
+.content iframe{
+  display: block;
+  margin: auto;
+}
+
+.content video{
+  width: 50%;
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+#weatherbox{
+  background-image:url('https://images.theconversation.com/files/232705/original/file-20180820-30593-1nxanpj.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=496&fit=clip');
+  background-size: cover;
+  display: block;
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border-radius: 20px;
+  padding: 20px;
+  border:2px solid blue;
+}
+
+#weatherbox h2{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    background-color: powderblue;
+    border:2px solid blue;
+    border-radius: 25px;
+    padding: 10px;
+    text-align: center;
+
+}
+
+#weatherbox #city{
+  border-radius: 20px;
+  width: 300px;
+  height: 30px;
+  background-color: rgba(0,0,0,0.6);
+  padding: 10px;
+  color: white;
+}
+
+#weatherbox #click{
+  border-radius: 20px;
+  width: 200px;
+  height: 30px;
+  background-color: rgba(0,0,0,0.6);
+  color: white;
+}
+
+#weatherbox #click:hover{
+  cursor: pointer;
+}
+
+#weatherbox p{
+  text-align: left;
+  display: block;
+  width: 300px;
+  border-radius: 20px;
+  /*background-color: white;*/
+  background-color: rgba(0,0,0,0.6);
+  padding: 10px;
+  color: white;
+}
+
+table.disasters tr td div{
+  display: block;
+  width: 320px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+  border:2px dashed black;
+}
+
+table.disasters tr td div h2{
+  text-align: center;
+}
+
+table.disasters tr.disimg td div img{
+  width: 100%;
+}
+
+div.maps{
+  width: 1000px;
+  height: 450px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+div.maps iframe{
+  resize: both;
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  border:2px dashed black;
+}
+
+div.maps h2{
+  display: block;
+  background-color: white;
+  width: 300px;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  border: 2px dashed black;
+}
+
+table.maps{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div.footer{
+  display: block;
+  width: 100%;
+  background-color: white;
+  position: relative;
+  bottom: 0px;
+  padding: 20px;
+}
+
+
+table tr td.right{
+  float: right;
+}
+
+div.left{
+  float:left;
+}
+
+div.left ul{
+  list-style-type: none;
+}
+
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+div.left ul li a{
+  text-decoration: underline;
+  color: black;
+}
+
+
+
+table tr td.right img{
+  width: 20px;
+}
+
+.content h1{
+  font-family: Brush Script MT, Brush Script Std, cursive;
+  /*text-transform: uppercase;*/
+  background: linear-gradient(to right, #30CFD0 0%, #330867 20%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size:3em;
+
+}
+
+div.windy iframe{
+  border-radius: 20px;
+  border:2px solid blue;
+}
+
+div.conthurricane {
+  background-color: white;
+  padding: 10px;
+  border-left: 4px solid blue;
+  border-top-right-radius: 20px;
+}
+
+div.contearth{
+  background-color: white;
+  padding: 10px;
+  border-left: 4px solid red;
+}
+
+div.conttsunami{
+  background-color: white;
+  padding: 10px;
+  border-left: 4px solid yellow;
+  /*border-bottom-right-radius: 20px;*/
+}
+
+div.contvolc{
+  background-color: white;
+  padding: 10px;
+  border-left: 4px solid orange;
+  border-bottom-right-radius: 20px;
+}
+
+
+
+div.images img, div.videos video, div.videos iframe{
+  width: 800px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  border:2px solid blue;
+}
+
+div.images h3{
+  width: 500px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  background-color: white;
+  padding: 10px;
+  border-radius: 20px;
+  border:2px solid blue;
+
+}
+
+
+iframe.shelter{
+  width: 100px;
+  overflow: auto;
+  resize: both;
+}
+
+.longvid{
+  height: 500px;
+  
+}
+
+div.about{
+  display: block;
+  /*margin-left: auto;
+  margin-right: auto;*/
+  font-family: Verdana;
+  background-color: rgba(255,255,255,0.6);
+  border-left: 3px solid blue;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 20px;
+  width: 100%;
+
+}
+
+div.aboutus{
+  display: block;
+  /*margin-left: auto;
+  margin-right: auto;*/
+  font-family: Verdana;
+  background-color: rgba(255,255,255,0.6);
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 20px;
+  width: 100%;
+
+}
